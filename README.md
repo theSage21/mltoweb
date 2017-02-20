@@ -8,6 +8,8 @@ Installation
 
 ```bash
 pip install git+https://github.com/theSage21/mltoweb
+```
+
 
 Usage
 -----
