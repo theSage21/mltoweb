@@ -11,10 +11,13 @@ with open('estimator.pickle', 'rb') as fl:
 @get('/')
 def main():
     html = """<html>
-    <head></head>
+    <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
     <body>
-    <a href="/reload-classifier">Reload classifier from file</a><hr>
-        <table>
+    <div class='container'>
+    <a href="/reload-classifier"><button class='btn'>Reload classifier from file</button></a><hr>
+        <table class='table'>
         <form action='/form-receptor' method='post'>
             <tbody>
             {inputs}
@@ -22,6 +25,7 @@ def main():
             </tbody>
         </form>
         </table>
+    </div>
     </body>
     </html>"""
     return html
@@ -31,8 +35,8 @@ def mainform():
     names = {names}
     values = [float(request.POST[i]) for i in names]
     prediction = est.predict([values])
-    html = 'Prediction is: ' + str(prediction)
-    html += '<br> <a href="/">Another prediction</a>'
+    html = '<p>Prediction is: ' + str(prediction)
+    html += '</p><br> <a href="/">Another prediction</a>'
     return html
 
 @get('/reload-classifier')

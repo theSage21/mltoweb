@@ -3,6 +3,11 @@ ML to Web
 
 Make a quick demo website for your sklearn models
 
+Installation
+------------
+
+```bash
+pip install git+https://github.com/theSage21/mltoweb
 
 Usage
 -----
